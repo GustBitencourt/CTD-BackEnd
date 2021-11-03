@@ -26,11 +26,11 @@ public class Main {
             "(2, 'João', 'Pedro', 30, '4321'), " +
             "(3, 'Alfredo', 'Macedo', 18, '2134')";
 
-    private static final String sqlUpdate = "UPDATE funcionarios SET idade =19 WHERE id = 3;";
+    private static final String sqlUpdate = "UPDATE funcionarios SET idade = 40 WHERE id = 3;";
 
-    private static final String sqlDelete = "DELETE funcionarios WHERE id=2;";
+    private static final String sqlDelete = "DELETE funcionarios WHERE id = 2;";
 
-    private static final String sqlDelete2 = "DELETE funcionarios WHERE primeironome='Gustavo';";
+    private static final String sqlDelete2 = "DELETE funcionarios WHERE primeironome = 'Gustavo';";
 
     private static final Logger logger = Logger.getLogger(Main.class);
 
@@ -38,24 +38,24 @@ public class Main {
 
         BasicConfigurator.configure();
 
-        try(Connection conn = getConnection()) {
-            Statement stmt = conn.createStatement();
+        try(Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
 
             try{
-                stmt.execute(sqlCreateTable);
-                stmt.execute(sqlInsert);
+                statement.execute(sqlCreateTable);
+                statement.execute(sqlInsert);
             }catch (Exception e) {
-                logger.error("A chave primaria está duplicada");
+                logger.error("Id");
             }
-            stmt.execute(sqlInsertCorreto);
+            statement.execute(sqlInsertCorreto);
 
-            stmt.execute(sqlUpdate);
-            logger.debug("As informações do funcionário de id 3 foram atualizadas.");
+            statement.execute(sqlUpdate);
+            logger.debug("As informações dos ids de funcionários foram atualizadas.");
 
-            stmt.execute(sqlDelete);
+            statement.execute(sqlDelete);
             logger.info("O funcionario de id numero 2 foi excluido.");
 
-            stmt.execute(sqlDelete2);
+            statement.execute(sqlDelete2);
             logger.info("O funcionario Gustavo foi excluido.");
 
         }
