@@ -30,7 +30,7 @@ public class Main {
 
     private static final String sqlDelete = "DELETE funcionarios WHERE id=2;";
 
-    private static final String sqlDelete2 = "DELETE funcionarios WHERE primeironome='Luiz';";
+    private static final String sqlDelete2 = "DELETE funcionarios WHERE primeironome='Gustavo';";
 
     private static final Logger logger = Logger.getLogger(Main.class);
 
@@ -50,13 +50,13 @@ public class Main {
             stmt.execute(sqlInsertCorreto);
 
             stmt.execute(sqlUpdate);
-            logger.debug("As informações do usuario com id 3 foram atualizadas.");
+            logger.debug("As informações do funcionário de id 3 foram atualizadas.");
 
             stmt.execute(sqlDelete);
             logger.info("O funcionario de id numero 2 foi excluido.");
 
             stmt.execute(sqlDelete2);
-            logger.info("O funcionario Luiz foi excluido.");
+            logger.info("O funcionario Gustavo foi excluido.");
 
         }
 
