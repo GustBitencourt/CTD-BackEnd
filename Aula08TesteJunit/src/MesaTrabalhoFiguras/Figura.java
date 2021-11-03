@@ -1,0 +1,6 @@
+package MesaTrabalhoFiguras;
+
+public abstract class Figura {
+
+    public abstract double calcularPerimetro();
+}
